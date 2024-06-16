@@ -1,0 +1,20 @@
+canvas(id="c")
+
+-var frequency = 0.05;
+-var scale = 20;
+
+svg(xlmns="http://www.w3.org/2000/svg" version="1.1")
+    defs
+        filter(id="turbulence")
+            feTurbulence(
+                type="fractalNoise"
+                baseFrequency="#{frequency} #{frequency}"
+                numOctaves="1"
+                result="noice"
+            )
+            feDisplacementMap(
+                xChannelSelector="R"
+                yChannelSelector="G"
+                scale="#{scale}"
+                in="SourceGraphic"
+            )
